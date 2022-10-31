@@ -2,10 +2,8 @@ import React from 'react';
 import "./FilterJob.css";
 
 
-function filterJob() {
+export default function FilterJob() {
   return (
     <div>Filter Job</div>
   )
 }
-
-export default filterJob

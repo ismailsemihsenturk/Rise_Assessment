@@ -2,10 +2,8 @@ import React from 'react';
 import "./Job.css";
 
 
-function Job() {
+export default function Job() {
   return (
     <div>Job</div>
   )
 }
-
-export default Job

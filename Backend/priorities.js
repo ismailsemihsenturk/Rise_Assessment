@@ -1,5 +1,11 @@
-export const Priorities = {
-    Urgent: "Urgent",
-    Regular: "Regular",
-    Trivial: "Trivial",
-};
+export const Priorities = [
+    {
+        Priority: "Urgent",
+    },
+    {
+        Priority: "Regular",
+    },
+    {  
+        Priority: "Trivial",
+    }
+];

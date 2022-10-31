@@ -1,27 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
-import {useState} from "react"
+import "./App.css";
+import CreateJob from "./components/createJobs/CreateJob";
+import FilterJob from "./components/filterJobs/FilterJob";
+import Job from "./components/jobs/Job";
+import { useState, useEffect } from "react"
 import axios from "axios"
+axios.defaults.baseURL ="http://localhost:8800/api";
 
 function App() {
 
+  const [priorities, setPriorities] = useState({});
+
+  useEffect(() => {
+    const getPriorities = async () => {
+      let priority = await axios.get("");
+      console.log(priority.data)
+      setPriorities(priority.data);
+    };
+    getPriorities();
+  }, []);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to relo
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {priorities.Trivial + " Kişisel iş takip uygulaması"}
+      <CreateJob/>
+      <FilterJob/>
+      <Job/>
     </div>
   );
 }

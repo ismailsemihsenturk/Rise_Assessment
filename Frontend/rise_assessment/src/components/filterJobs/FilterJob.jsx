@@ -1,37 +1,18 @@
-import { React, useState, useRef, useEffect } from 'react';
+import { React } from 'react';
 import "./FilterJob.css";
 
 
 export default function FilterJob(props) {
 
-  const [option, setOption] = useState("default");
-  const [jobName, setJobName] = useState("");
+  const filterByName = (e) => {
+    console.log("name: " + e.target.value);
+    props.setFilterJob(e.target.value);
+  }
 
-  const handleChange = (e) => {
-    e.preventDefault();
-    e.target.setCustomValidity("")
-    setOption(e.target.value);
-  };
-
-  // Filter by name
-  useEffect(() => {
-
-    if (jobName !== "") {
-      props.setFilterJob(jobName)
-    }
-
-  }, [props, jobName]);
-
-
-  // Filter by priority
-  useEffect(() => {
-
-    if (option !== "default") {
-      props.setFilterPriority(option)
-    }
-
-  }, [props, option]);
-
+  const filterByPriority = (e) => {
+    console.log("filter: " + e.target.value);
+    props.setFilterPriority(e.target.value);
+  }
 
   return (
     <div className="Container">
@@ -41,12 +22,13 @@ export default function FilterJob(props) {
 
         <div className="Filter-Job">
           <input className="Filter-Job-Name" type="text" placeholder="Search by name" maxLength={255}
-            onChange={e => setJobName(e.target.value)}
-            value={jobName} />
+            onChange={e => filterByName(e)}
+          />
         </div>
         <div className="Filter-Priority">
-          <select defaultValue={"default"} className="Filter-Job-Priority" onChange={handleChange}>
-            <option disabled
+          <select className="Filter-Job-Priority" onChange={e => filterByPriority(e)}>
+            <option
+              selected
               value="default">
               Priority (All)
             </option>

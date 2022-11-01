@@ -40,6 +40,19 @@ function App() {
         <FilterJob priorities={priorities} setFilterJob={setFilterJob} setFilterPriority={setFilterPriority} />
       </div>
       <div className="Job">
+        <div className="Job-List">
+
+        
+          <div className="Job-List-Name Title-Font">JOB NAME</div>
+          <div className="Job-List-Priority Title-Font">PRIORITY</div>
+          
+
+        
+          <div className="Job-List-Edit Title-Font">EDIT JOB</div>
+          <div className="Job-List-Delete Title-Font">DELETE JOB</div>
+       
+         
+        </div>
         {job.map((job,index) => (
           <Job job={job} key={index}/>
         ))}   

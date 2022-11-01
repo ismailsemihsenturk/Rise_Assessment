@@ -8,7 +8,7 @@
 }
 
 .Job-Name-Job {
-    flex: 6;
+    flex: 5;
     margin-left: 5px;
 }
 
@@ -17,8 +17,9 @@
 }
 
 .Job-Priority-Job {
-    flex: 4;
+    flex: 3;
     margin-left: 20px;
+    align-self: center;
 }
 
 .Priority-Urgent {

@@ -48,7 +48,7 @@ export default function FilterJob(props) {
           <select defaultValue={"default"} className="Filter-Job-Priority" onChange={handleChange}>
             <option disabled
               value="default">
-              Please Select a Priority
+              Priority (All)
             </option>
             {props.priorities.map((priority, index) => (
               <option key={index} value={priority.Priority}>
@@ -57,7 +57,6 @@ export default function FilterJob(props) {
             ))}
           </select>
         </div>
-
       </div>
     </div>
 

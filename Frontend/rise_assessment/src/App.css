@@ -1,4 +1,4 @@
-@media screen and (max-height: 700px) {
+@media screen and (max-height: 699px) {
   .App {
     display: flex;
     flex-direction: column;
@@ -38,4 +38,89 @@
 .Job {
   flex: 7;
   /* background-color: red; */
+}
+
+
+.Job-List {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(124, 146, 196);
+  padding-left: 10px;
+  margin: 5px;
+  height: 50px;
+  align-items: center;
+}
+
+@media screen and (max-width:549px) {
+  .Job-List-Name {
+    color: white;
+    flex: 4;
+  }
+
+  .Job-List-Priority {
+    color: white;
+    flex: 3;
+    padding-left: 50px;
+  }
+
+  .Job-List-Edit {
+    color: white;
+    flex: 2;
+  }
+
+  .Job-List-Delete {
+    color: white;
+    flex: 2;
+  }
+}
+
+@media screen and (min-width:550px) {
+  .Job-List-Name {
+    color: white;
+    flex: 4;
+  }
+
+  .Job-List-Priority {
+    color: white;
+    flex: 3;
+    padding-left: 120px;
+  }
+
+  .Job-List-Edit {
+    color: white;
+    flex: 2;
+  }
+
+  .Job-List-Delete {
+    color: white;
+    flex: 2;
+  }
+}
+
+@media screen and (min-width:1500px) {
+  .Job-List-Name {
+    color: white;
+    flex: 4;
+  }
+
+  .Job-List-Priority {
+    color: white;
+    flex: 3;
+    padding-left: 180px;
+  }
+
+  .Job-List-Edit {
+    color: white;
+    flex: 2;
+  }
+
+  .Job-List-Delete {
+    color: white;
+    flex: 2;
+  }
+}
+
+.Title-Font {
+  font-weight: bold;
+  font-size: 1rem;
 }

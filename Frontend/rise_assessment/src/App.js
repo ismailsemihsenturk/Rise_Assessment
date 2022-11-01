@@ -9,6 +9,7 @@ axios.defaults.baseURL = "http://localhost:8800/api";
 function App() {
 
   const [priorities, setPriorities] = useState([]);
+  const [job, setJob] = useState([]);
 
   useEffect(() => {
     const getPriorities = async () => {
@@ -25,13 +26,13 @@ function App() {
         <hr />
       </div>
       <div className="Create-Job">
-        <CreateJob priorities={priorities} />
+        <CreateJob priorities={priorities} job={job} setJob={setJob} />
       </div>
       <div className="Filter-Job">
-        <FilterJob />
+        <FilterJob priorities={priorities} />
       </div>
       <div className="Job">
-        <Job />
+        <Job job={job} />
       </div>
     </div>
   );

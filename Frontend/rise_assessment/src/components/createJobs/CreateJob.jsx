@@ -35,9 +35,18 @@ export default function CreateJob(props) {
                 console.log(data)
                 data[data.length] = dataObj;
                 localStorage.setItem("data", JSON.stringify(data))
+
+                if (props.job.length === 0) {
+                    props.setJob(data)
+                }
+                else {
+                    props.setJob([...props.job, dataObj])
+                }
+
             }
             else {
                 localStorage.setItem("data", JSON.stringify([dataObj]))
+                props.setJob(dataObj)
             }
 
             console.log("submitted")

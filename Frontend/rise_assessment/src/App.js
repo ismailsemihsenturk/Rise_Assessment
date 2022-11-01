@@ -39,7 +39,7 @@ function App() {
   // Filter by name
   useEffect(() => {
     if (filterJob !== "") {
-      let filteredData = job.filter(f => f.jobName === filterJob)
+      let filteredData = data.current.filter(f => f.jobName === filterJob)
       if (filteredData.length > 0) {
         setJob(filteredData)
       }

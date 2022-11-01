@@ -17,7 +17,7 @@ export default function CreateJob(props) {
     };
 
     const createJob = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
 
         if (option === "default") {
             selectRef.current.setCustomValidity("Please select a priority");
@@ -39,7 +39,7 @@ export default function CreateJob(props) {
                     props.setJob(data)
                 }
                 else {
-                    props.setJob([...props.job, dataObj])
+                    props.setJob([...props.job, dataObj]);
                 }
 
             }

@@ -1,0 +1,39 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+}
+
+.Filter-Bar {
+    display: flex;
+    flex-direction: row;
+}
+
+.Filter-Job {
+    flex: 6;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.Filter-Priority {
+    flex: 2;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-right: 10px;
+}
+
+.Filter-Job-Priority {
+    height: 31px;
+}
+
+.Filter-Job-Name {
+    height: 25px;
+    width: 90%;
+}
+
+input:focus {
+    outline: none !important;
+}
+
+select:focus {
+    outline: none !important;
+}

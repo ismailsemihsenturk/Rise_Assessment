@@ -32,7 +32,6 @@ export default function CreateJob(props) {
             };
             if (localStorage.getItem("data") !== null) {
                 let data = JSON.parse(localStorage.getItem("data"));
-                console.log(data)
                 data[data.length] = dataObj;
                 localStorage.setItem("data", JSON.stringify(data))
 
@@ -62,7 +61,7 @@ export default function CreateJob(props) {
 
             <form className="Form-Container" onSubmit={(e) => createJob(e)}>
                 <div className="Job-Name">
-                    <h3 className="Title"> Job Name</h3>
+                    <h4 className="Title"> Job Name</h4>
                     <input ref={inputRef} className="Input-Job-Name" type="text" placeholder="Please enter a name" required pattern="^[a-zA-Z0-9_ ]*$" maxLength={255}
                         onInvalid={e => e.target.setCustomValidity('Please fill the blank with only alphanumeric characters')}
                         onInput={e => e.target.setCustomValidity("")}
@@ -71,7 +70,7 @@ export default function CreateJob(props) {
                 </div>
 
                 <div className="Job-Priority">
-                    <h3 className="Title"> Job Priority</h3>
+                    <h4 className="Title"> Job Priority</h4>
                     <select defaultValue={"default"} ref={selectRef} required className="Select-Job-Priority" onChange={handleChange}>
                         <option disabled
                             value="default">

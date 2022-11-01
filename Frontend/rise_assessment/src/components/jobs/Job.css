@@ -1,0 +1,81 @@
+.Container-Job {
+    display: flex;
+    flex-direction: row;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(219, 227, 235);
+    margin: 5px;
+}
+
+.Job-Name-Job {
+    flex: 6;
+    margin-left: 5px;
+}
+
+.Job-Name-Job>p {
+    word-break: break-all;
+}
+
+.Job-Priority-Job {
+    flex: 4;
+    margin-left: 20px;
+}
+
+.Priority-Urgent {
+    color: white;
+    background-color: red;
+    border-radius: 5px;
+    width: 70px;
+    height: 25px;
+    text-align: center;
+}
+
+.Priority-Regular {
+    color: white;
+    background-color: orange;
+    border-radius: 5px;
+    width: 70px;
+    height: 25px;
+    text-align: center;
+}
+
+.Priority-Trivial {
+    color: white;
+    background-color: rgb(75, 75, 216);
+    border-radius: 5px;
+    width: 70px;
+    height: 25px;
+    text-align: center;
+}
+
+.Job-Edit {
+    flex: 2;
+    align-self: center;
+}
+
+.Job-Delete {
+    flex: 2;
+    align-self: center;
+}
+
+.Button-Job-Edit {
+    cursor: pointer;
+    color: white;
+    background-color: blue;
+    border: none;
+    border-radius: 5px;
+    width: 70px;
+    height: 25px;
+    text-align: center;
+}
+
+.Button-Job-Delete {
+    cursor: pointer;
+    color: white;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    width: 70px;
+    height: 25px;
+    text-align: center;
+}

@@ -10,6 +10,8 @@ function App() {
 
   const [priorities, setPriorities] = useState([]);
   const [job, setJob] = useState([]);
+  const [filterJob, setFilterJob] = useState("");
+  const [filterPriority, setFilterPriority] = useState("default");
 
   useEffect(() => {
     const getPriorities = async () => {
@@ -17,6 +19,12 @@ function App() {
       setPriorities(priority.data);
     };
     getPriorities();
+
+    if (localStorage.getItem("data") !== null) {
+      let data = JSON.parse(localStorage.getItem("data"));
+      setJob(data)
+    }
+
   }, []);
 
   return (
@@ -29,10 +37,12 @@ function App() {
         <CreateJob priorities={priorities} job={job} setJob={setJob} />
       </div>
       <div className="Filter-Job">
-        <FilterJob priorities={priorities} />
+        <FilterJob priorities={priorities} setFilterJob={setFilterJob} setFilterPriority={setFilterPriority} />
       </div>
       <div className="Job">
-        <Job job={job} />
+        {job.map((job,index) => (
+          <Job job={job} key={index}/>
+        ))}   
       </div>
     </div>
   );

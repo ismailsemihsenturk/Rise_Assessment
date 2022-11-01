@@ -13,7 +13,6 @@ function App() {
   useEffect(() => {
     const getPriorities = async () => {
       let priority = await axios.get("");
-      console.log(priority.data)
       setPriorities(priority.data);
     };
     getPriorities();
@@ -22,7 +21,7 @@ function App() {
   return (
     <div className="App">
       <div className="Header">
-        {priorities[0].Priority + " Kişisel iş takip uygulaması"}
+        KİŞİSEL İŞ TAKİP UYGULAMASI
         <hr />
       </div>
       <div className="Create-Job">

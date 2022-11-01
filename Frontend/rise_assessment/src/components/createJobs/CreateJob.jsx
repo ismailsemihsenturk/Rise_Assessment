@@ -1,38 +1,86 @@
-import { React, useState } from "react";
+import { React, useState, useRef } from "react";
 import "./CreateJob.css";
 
 
 export default function CreateJob(props) {
 
-    const [option, setOption] = useState({});
+    const [option, setOption] = useState("default");
+    const [jobName, setJobName] = useState("");
+    const selectRef = useRef(HTMLSelectElement);
+    const inputRef = useRef(HTMLInputElement);
+
+
     const handleChange = (e) => {
-        setOption(+e.target.value);
+        e.preventDefault();
+        e.target.setCustomValidity("")
+        setOption(e.target.value);
     };
+
+    const createJob = (e) => {
+        e.preventDefault();
+
+        if (option === "default") {
+            selectRef.current.setCustomValidity("Please select a priority");
+            selectRef.current.reportValidity();
+        }
+        else {
+            selectRef.current.setCustomValidity("");
+
+            let dataObj = {
+                jobName: jobName,
+                priority: option
+            };
+            if (localStorage.getItem("data") !== null) {
+                let data = JSON.parse(localStorage.getItem("data"));
+                console.log(data)
+                data[data.length] = dataObj;
+                localStorage.setItem("data", JSON.stringify(data))
+            }
+            else {
+                localStorage.setItem("data", JSON.stringify([dataObj]))
+            }
+
+            console.log("submitted")
+            setJobName("")
+        }
+    }
+
 
     return (
         <div className="Container">
 
-            <h3>Create New Job</h3>
-                             <div className="Titles">
-                <h1> Job Name</h1>
-                <h1> Job Priority</h1>
-            </div>
-            <div className="Inputs">
-                <input type="text" />
-                <select onChange={handleChange}>
-                    <option disabled
-                        value="default">
-                        Please Select a Priority
-                    </option>
-                    {props.priorities.map((priority, index) => (
-                        <option key={index} value={priority.Priority}>
-                            {priority.Priority}
+            <h2>Create New Job</h2>
+
+            <form className="Form-Container" onSubmit={(e) => createJob(e)}>
+                <div className="Job-Name">
+                    <h3 className="Title"> Job Name</h3>
+                    <input ref={inputRef} className="Input-Job-Name" type="text" placeholder="Please enter a name" required pattern="^[a-zA-Z0-9_ ]*$" maxLength={255}
+                        onInvalid={e => e.target.setCustomValidity('Please fill the blank with only alphanumeric characters')}
+                        onInput={e => e.target.setCustomValidity("")}
+                        onChange={e => setJobName(e.target.value)}
+                        value={jobName} />
+                </div>
+
+                <div className="Job-Priority">
+                    <h3 className="Title"> Job Priority</h3>
+                    <select defaultValue={"default"} ref={selectRef} required className="Select-Job-Priority" onChange={handleChange}>
+                        <option disabled
+                            value="default">
+                            Please Select a Priority
                         </option>
-                    ))}
-                </select>
-            </div>
+                        {props.priorities.map((priority, index) => (
+                            <option key={index} value={priority.Priority}>
+                                {priority.Priority}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+
+                <div className="Job-Create">
+                    <h3 className="Secret">button</h3>
+                    <button className="Button-Job-Create" type="submit">Create</button>
+                </div>
+            </form>
         </div>
-
-
     )
 }

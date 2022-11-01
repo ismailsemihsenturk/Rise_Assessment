@@ -2,37 +2,40 @@
   .App {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
     height: 645px;
+    margin: 5px 25px 5px 25px;
   }
 }
+
 @media screen and (min-height: 700px) {
   .App {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
     height: 1080px;
+    margin: 5px 25px 5px 25px;
   }
 }
 
 .Header {
   flex: 1;
-  font-size: 25px;
+  font-size: 33px;
   font-weight: bold;
-  color: rgb(50, 50, 175);
+  color: rgb(97, 91, 91);
 }
 
 .Create-Job {
   flex: 2;
-  background-color: green;
+  /* background-color: green; */
+  margin-bottom: 50px;
 }
 
 .Filter-Job {
   flex: 2;
-  background-color: purple;
+  /* background-color: purple; */
+  margin-bottom: 50px;
 }
 
 .Job {
   flex: 7;
-  background-color: red;
+  /* background-color: red; */
 }

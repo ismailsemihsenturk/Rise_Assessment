@@ -12,6 +12,7 @@ function App() {
   const [job, setJob] = useState([]);
   const [filterJob, setFilterJob] = useState("");
   const [filterPriority, setFilterPriority] = useState("default");
+  const [mutateJob, setMutateJob] = useState(false);
   const data = useRef();
 
 
@@ -69,6 +70,18 @@ function App() {
   }, [filterPriority])
 
 
+  const handleEdit = (mutateJob) => {
+    let filteredData = job.filter(f => f.jobName !== mutateJob.jobName);
+    filteredData.push(mutateJob);
+    setJob(filteredData);
+    localStorage.setItem("data", JSON.stringify(filteredData));
+  }
+
+  const handleDelete = (mutateJob) => {
+    let filteredData = job.filter(f => f.jobName !== mutateJob.jobName);
+    setJob(filteredData);
+    localStorage.setItem("data", JSON.stringify(filteredData));
+  }
 
 
   return (
@@ -97,9 +110,9 @@ function App() {
 
 
         </div>
-        {job.map((job, index) => (
+        {job?.map((job, index) => (
           <div key={index}>
-            <Job job={job} priorities={priorities} />
+            <Job job={job} priorities={priorities} handleEdit={handleEdit} handleDelete={handleDelete} />
           </div>
         ))}
       </div>

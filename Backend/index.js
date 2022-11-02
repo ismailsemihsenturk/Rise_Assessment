@@ -3,7 +3,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 import cors from "cors";
 
-import {Priorities} from "./priorities.js";
+import { Priorities } from "./priorities.js";
 
 const app = express();
 const port = process.env.PORT || 8800;
@@ -14,10 +14,8 @@ app.use(cors())
 app.use(express.json())
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin", crossOriginResourcePolicy: false, }));
 app.use(morgan("common"))
-app.use("/api",router)
+app.use("/api", router)
 
-
-console.log("veri: "+ JSON.stringify(Priorities.Urgent));
 
 
 // Get priorities

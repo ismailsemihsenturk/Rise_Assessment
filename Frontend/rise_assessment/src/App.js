@@ -40,6 +40,9 @@ function App() {
   useEffect(() => {
     if (filterJob !== "") {
       let filteredData = data.current.filter(f => f.jobName === filterJob)
+      if (filterPriority !== "default") {
+        filteredData = filteredData.filter(f => f.priority === filterPriority);
+      }
       if (filteredData.length > 0) {
         setJob(filteredData)
       }
@@ -48,7 +51,7 @@ function App() {
       }
     }
 
-  }, [filterJob])
+  }, [filterJob, filterPriority])
 
 
   // Filter by priority
@@ -95,7 +98,9 @@ function App() {
 
         </div>
         {job.map((job, index) => (
-          <Job job={job} key={index} />
+          <div key={index}>
+            <Job job={job} priorities={priorities} />
+          </div>
         ))}
       </div>
     </div>

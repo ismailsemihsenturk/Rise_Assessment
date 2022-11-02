@@ -80,3 +80,82 @@
     height: 25px;
     text-align: center;
 }
+
+.Modal-Header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.Modal-Header>h3 {
+    font-weight: bold;
+    flex: 6;
+    margin: 0;
+}
+
+.Modal-Header>button {
+    height: 25px;
+    width: 25px;
+    align-items: center;
+    background-color: red;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+
+
+.Modal-Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.Modal-Container-JobName {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.Modal-Container-JobName>h5 {
+    color: black;
+    margin: 25px 0px 5px 0px;
+}
+
+.Modal-Container-JobName>input {
+    height: 15px;
+}
+
+.Modal-Container-Priority {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.Modal-Container-Priority>h5 {
+    color: black;
+    margin: 25px 0px 5px 0px;
+}
+
+.Modal-Container-Priority>select {
+    height: 25px;
+}
+
+
+.Modal-Submit-Button {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 10px 0 0 0;
+}
+
+.Modal-Submit-Button>button {
+    cursor: pointer;
+    color: white;
+    background-color: blue;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    height: 25px;
+}

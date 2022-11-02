@@ -62,7 +62,7 @@ export default function CreateJob(props) {
             <form className="Form-Container" onSubmit={(e) => createJob(e)}>
                 <div className="Job-Name">
                     <h4 className="Title"> Job Name</h4>
-                    <input ref={inputRef} className="Input-Job-Name" type="text" placeholder="Please enter a name" required pattern="^[a-zA-Z0-9_ ]*$" maxLength={255}
+                    <input ref={inputRef} data-testid={"input-job-name"} className="Input-Job-Name" type="text" placeholder="Please enter a name" required pattern="^[a-zA-Z0-9_ ]*$" maxLength={255}
                         onInvalid={e => e.target.setCustomValidity('Please fill the blank with only alphanumeric characters')}
                         onInput={e => e.target.setCustomValidity("")}
                         onChange={e => setJobName(e.target.value)}
@@ -71,7 +71,7 @@ export default function CreateJob(props) {
 
                 <div className="Job-Priority">
                     <h4 className="Title"> Job Priority</h4>
-                    <select defaultValue={"default"} ref={selectRef} required className="Select-Job-Priority" onChange={handleChange}>
+                    <select defaultValue={"default"} ref={selectRef} required data-testid={"input-job-priority"} className="Select-Job-Priority" onChange={handleChange}>
                         <option disabled
                             value="default">
                             Please Select a Priority
@@ -86,7 +86,7 @@ export default function CreateJob(props) {
 
                 <div className="Job-Create">
                     <h3 className="Secret">button</h3>
-                    <button className="Button-Job-Create" type="submit">Create</button>
+                    <button className="Button-Job-Create" type="submit" data-testid={"button-job-create"}>Create</button>
                 </div>
             </form>
         </div>

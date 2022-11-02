@@ -2,8 +2,8 @@ import "./App.css";
 import CreateJob from "./components/createJobs/CreateJob";
 import FilterJob from "./components/filterJobs/FilterJob";
 import Job from "./components/jobs/Job";
-import { useState, useEffect, useRef } from "react"
-import axios from "axios"
+import { useState, useEffect, useRef } from "react";
+import axios from "axios";
 axios.defaults.baseURL = "http://localhost:8800/api";
 
 function App() {

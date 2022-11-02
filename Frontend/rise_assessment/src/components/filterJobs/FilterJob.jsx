@@ -21,7 +21,7 @@ export default function FilterJob(props) {
       <div className="Filter-Bar">
 
         <div className="Filter-Job">
-          <input className="Filter-Job-Name" type="text" placeholder="Search by name" maxLength={255}
+          <input data-testid={"filter-job-name"} className="Filter-Job-Name" type="text" placeholder="Search by name" maxLength={255}
             onChange={e => filterByName(e)}
           />
         </div>
